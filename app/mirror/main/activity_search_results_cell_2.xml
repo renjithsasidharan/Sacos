@@ -1,0 +1,26 @@
+<!-- [ Mirror metadata ] generatedAt: 1452627949991 -->
+<!-- Generated screen file. Fill the id tags below with content with
+which to populate your previewed layout. For a complete specification
+of sample data, please see http://jimulabs.com/sample-data-specifications/ 
+
+Valid attributes on <screen> tag: theme="@style/someTheme" inEditMode="false" overlay="@drawable/mockup" -->
+<screen>
+    <_content layout="@layout/activity_search_results_cell_2">
+        <!-- ImageView Examples:
+        <result_round_trip src="@drawable/image_resource" />
+        <result_round_trip src="relative_path/image.jpg" /> -->
+        <result_round_trip />
+        <!-- TextView Examples:
+        <result_from_name text="@string/string_resource" />
+        <result_from_name text="Text literal" textSize="14sp" /> -->
+        <result_from_name />
+        <result_from_code />
+        <result_to_name />
+        <result_to_code />
+        <result_from_date />
+        <result_from_day />
+        <result_to_date />
+        <result_to_day />
+        <result_quote />
+    </_content>
+</screen>

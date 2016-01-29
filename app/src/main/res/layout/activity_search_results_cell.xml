@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:id="@+id/search_result_parent">
+
+    <ImageView
+        android:layout_width="36dp"
+        android:layout_height="match_parent"
+        android:id="@+id/result_round_trip"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_flight"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Bangalore"
+        android:id="@+id/result_from_name"
+        android:textSize="@dimen/card_header_text_size"
+        android:padding="8dp"
+        android:paddingBottom="8dp"
+        android:textColor="@color/card_section_title_color"
+
+
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/result_round_trip"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textAlignment="center"
+        android:text="BLR"
+        android:textSize="@dimen/card_subheader_text_size"
+        android:id="@+id/result_from_code"
+        android:layout_below="@+id/result_from_name"
+        android:layout_toLeftOf="@+id/result_round_trip"
+        android:layout_toStartOf="@+id/result_round_trip"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="San Francisco"
+        android:id="@+id/result_to_name"
+        android:textSize="@dimen/card_header_text_size"
+        android:padding="8dp"
+        android:paddingBottom="8dp"
+        android:textColor="@color/card_section_title_color"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/result_round_trip"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_toEndOf="@+id/result_round_trip"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textAlignment="center"
+        android:text="SFC"
+        android:textSize="@dimen/card_subheader_text_size"
+        android:id="@+id/result_to_code"
+        android:layout_below="@+id/result_to_name"
+        android:layout_toRightOf="@+id/result_round_trip"
+        android:layout_toEndOf="@+id/result_round_trip"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="12 JAN"
+        android:id="@+id/result_from_date"
+        android:textSize="24sp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:textColor="@color/card_section_title_color"
+        android:layout_below="@+id/result_from_code"
+        android:layout_toLeftOf="@+id/result_round_trip"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textAlignment="center"
+        android:text="Tuesday"
+        android:id="@+id/result_from_day"
+        android:layout_below="@+id/result_from_date"
+        android:layout_toLeftOf="@+id/result_round_trip"
+        android:layout_toStartOf="@+id/result_round_trip"/>
+    sasdaDASDZXCV
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="18 JAN"
+        android:id="@+id/result_to_date"
+        android:textSize="24sp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:textColor="@color/card_section_title_color"
+        android:layout_below="@+id/result_to_code"
+        android:layout_toRightOf="@+id/result_round_trip"
+        android:layout_toEndOf="@+id/result_round_trip"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textAlignment="center"
+        android:text="Sunday"
+        android:id="@+id/result_to_day"
+        android:layout_below="@+id/result_to_date"
+        android:layout_toRightOf="@+id/result_round_trip"
+        android:layout_toEndOf="@+id/result_round_trip"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="$458.6"
+        android:id="@+id/result_quote"
+        android:padding="8dp"
+        android:textStyle="bold"
+        android:layout_alignRight="@+id/result_to_day"
+        android:layout_below="@+id/result_to_day"/>
+</RelativeLayout>

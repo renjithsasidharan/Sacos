@@ -1,0 +1,12 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <TextView android:id="@+id/placename"
+              android:textSize="@dimen/font_regular"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/list_single_height"
+              android:padding="@dimen/padding_standard"
+              android:gravity="start|center"/>
+</LinearLayout>

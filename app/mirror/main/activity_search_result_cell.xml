@@ -1,0 +1,18 @@
+<!-- [ Mirror metadata ] generatedAt: 1452627949990 -->
+<!-- Generated screen file. Fill the id tags below with content with
+which to populate your previewed layout. For a complete specification
+of sample data, please see http://jimulabs.com/sample-data-specifications/ 
+
+Valid attributes on <screen> tag: theme="@style/someTheme" inEditMode="false" overlay="@drawable/mockup" -->
+<screen>
+    <_content layout="@layout/activity_search_result_cell">
+        <!-- TextView Examples:
+        <fare text="@string/string_resource" />
+        <fare text="Text literal" textSize="14sp" /> -->
+        <fare />
+        <from_airport />
+        <to_airport />
+        <from_date />
+        <return_date />
+    </_content>
+</screen>
