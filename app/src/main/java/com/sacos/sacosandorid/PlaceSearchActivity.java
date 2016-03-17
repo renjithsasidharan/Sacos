@@ -94,7 +94,7 @@ public class PlaceSearchActivity extends AppCompatActivity {
         String from= _from.getText().toString();
 
         SkyscannerService.SkyscannerApiInterface service = SkyscannerService.getClient();
-        Call<SkyscannerModel> call = service.browseQuotes(from, to, "prtl6749387986743898559646983194");
+        Call<SkyscannerModel> call = service.browseQuotes("IN", from, to, SkyscannerService.ANYTIME, SkyscannerService.ANYTIME, "prtl6749387986743898559646983194");
 
         call.enqueue(new Callback<SkyscannerModel>() {
             @Override

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="svg2367" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="50px" height="50px"
+	 viewBox="393.414 106.031 50 50" enable-background="new 393.414 106.031 50 50" xml:space="preserve">
+<path id="path2981" fill="#E2001A" d="M443.407,120.031c0,0-18.227,1.329-33.021,4.229c0,0-1.137,0.216-1.888,0.366
+	c0,0,2.636-0.442,3.477,0.542c0.878,1.029,2.176,3.613-8.284,12.789c-3.461,3.035-7.331,5.741-10.278,7.67l6.862-1.107
+	c3.192-3.039,11.625-9.909,19.116-13.839c12.688-6.653,22.667-10.187,23.958-10.588
+	C443.442,120.064,443.407,120.031,443.407,120.031"/>
+<linearGradient id="path3003_1_" gradientUnits="userSpaceOnUse" x1="394.0249" y1="104.009" x2="394.175" y2="104.009" gradientTransform="matrix(24.9891 117.5648 371.6894 -79.0052 -48089.4219 -37983.4453)">
+	<stop  offset="0" style="stop-color:#E2001A"/>
+	<stop  offset="0.7247" style="stop-color:#AE0917"/>
+	<stop  offset="1" style="stop-color:#AE0917"/>
+</linearGradient>
+<path id="path3003" fill="url(#path3003_1_)" d="M410.387,124.262c0,0-1.137,0.215-1.888,0.365l0,0c0,0,2.636-0.442,3.476,0.542l0,0
+	c0.88,1.029,2.178,3.613-8.281,12.789l0,0c-3.463,3.034-7.332,5.741-10.279,7.67l0,0l6.862-1.107
+	c3.192-3.039,11.625-9.909,19.118-13.839l0,0c12.166-6.381,21.841-9.891,23.752-10.522l0,0v-0.109
+	C440.872,120.225,424.145,121.565,410.387,124.262"/>
+<linearGradient id="path3037_1_" gradientUnits="userSpaceOnUse" x1="390.3672" y1="102.3049" x2="390.517" y2="102.3049" gradientTransform="matrix(146.307 0 0 -55.0916 -56715.6172 5762.3818)">
+	<stop  offset="0" style="stop-color:#E2001A"/>
+	<stop  offset="0.5" style="stop-color:#790E11"/>
+	<stop  offset="1" style="stop-color:#790E11"/>
+</linearGradient>
+<path id="path3037" fill="url(#path3037_1_)" d="M408.499,124.627l-10.564,2.37l-0.016,0.005c-0.011,0.005-0.019,0.008-0.019,0.021
+	l0,0c0,0.009,0.008,0.016,0.019,0.019l0,0c0.013,0,0.019,0.003,0.019,0.003l0,0l6.259,0.939c3.91-1.816,6.461-2.369,8.128-2.299l0,0
+	c-0.103-0.209-0.23-0.376-0.35-0.516l0,0c-0.444-0.519-1.382-0.642-2.173-0.642l0,0C409.09,124.528,408.499,124.627,408.499,124.627
+	"/>
+</svg>

@@ -14,6 +14,7 @@ public class OutboundLeg {
     private int OriginId;
     private int DestinationId;
     private String DepartureDate;
+    private String OutboundPictureUrl;
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     /**
@@ -87,6 +88,25 @@ public class OutboundLeg {
     public void setDepartureDate(String DepartureDate) {
         this.DepartureDate = DepartureDate;
     }
+
+    /**
+     *
+     * @return
+     *     The OutboundPictureUrl
+     */
+    public String getOutboundPictureUrl() {
+        return OutboundPictureUrl;
+    }
+
+    /**
+     *
+     * @param OutboundPictureUrl
+     *     The OutboundPictureUrl
+     */
+    public void setOutboundPictureUrl(String OutboundPictureUrl) {
+        this.OutboundPictureUrl = OutboundPictureUrl;
+    }
+
 
     public Map<String, Object> getAdditionalProperties() {
         return this.additionalProperties;

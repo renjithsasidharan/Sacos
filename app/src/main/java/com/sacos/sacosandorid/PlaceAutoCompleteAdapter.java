@@ -107,7 +107,7 @@ public class PlaceAutoCompleteAdapter extends BaseAdapter implements Filterable 
     private List<Place> findPlaces(String name) {
         SkyscannerService.SkyscannerApiInterface service = SkyscannerService.getClient();
         List<Place> places = new ArrayList<>();
-        Call<AutosuggestResult> call = service.autosuggest(name, "prtl6749387986743898559646983194");
+        Call<AutosuggestResult> call = service.autosuggest(name, SkyscannerService.API_KEY);
         try {
             Response<AutosuggestResult> response = call.execute();
             if(response.isSuccess()) {
@@ -119,24 +119,5 @@ public class PlaceAutoCompleteAdapter extends BaseAdapter implements Filterable 
             ex.printStackTrace();
         }
         return places;
-//        call.enqueue(new Callback<AutosuggestResult>() {
-//            @Override
-//            public void onResponse(Response<AutosuggestResult> response, Retrofit retrofit) {
-//
-//                Log.d("PlaceAutoCompleteAdapter", "Status Code = " + response.code());
-//
-//                if (response.isSuccess()) {
-//                    AutosuggestResult result = response.body();
-//                    Log.d("PlaceSearchActivity", "response = " + new Gson().toJson(result));
-//
-//                } else {
-//                    //Handle errors
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Throwable t) {
-//            }
-//        });
     }
 }

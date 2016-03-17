@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.sacos.sacosandorid"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -23,6 +23,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.google.android.gms:play-services-location:8.4.0'
     compile 'com.android.support:design:23.1.1'
     compile 'com.google.code.gson:gson:2.4'
     compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
@@ -30,6 +31,11 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.7.0'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.github.gabrielemariotti.cards:cardslib-core:2.1.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.android.support:recyclerview-v7:23.1.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.vinaysshenoy:mugen:1.0.2'
+    compile 'net.danlew:android.joda:2.9.2'
     provided 'org.glassfish:javax.annotation:10.0-b28'
 
     compile 'com.facebook.stetho:stetho:1.2.0'

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="50px" height="50px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+<linearGradient id="path3327_1_" gradientUnits="userSpaceOnUse" x1="3.3115" y1="32.2773" x2="3.5108" y2="32.2773" gradientTransform="matrix(-200.82 0 0 200.82 707.5 -6456.875)">
+	<stop  offset="0" style="stop-color:#96C13D"/>
+	<stop  offset="1" style="stop-color:#00994C"/>
+</linearGradient>
+<path id="path3327" fill="url(#path3327_1_)" d="M9.875,14c5.559,2.629,9.562,6.373,9.562,6.373l0,0c0,0-9.446,11.433-15.397,15.522
+	l0,0h8.19c5.082-10.261,11.964-12.739,18.201-13.501l0,0c4.738-0.575,10.276-0.709,13.348-0.737l0,0l-5.744-3.407
+	c-1.584,0.17-3.116,0.25-4.298,0.25l0,0c-8.949,0-11.147-0.868-15.768-4.5l0,0H9.875L9.875,14z"/>
+<linearGradient id="path3347_1_" gradientUnits="userSpaceOnUse" x1="-1.5342" y1="29.9473" x2="-1.3347" y2="29.9473" gradientTransform="matrix(157.1582 -29.4673 -29.4673 -157.1582 1141.875 4690.25)">
+	<stop  offset="0" style="stop-color:#F4A51D"/>
+	<stop  offset="1" style="stop-color:#E63625"/>
+</linearGradient>
+<path id="path3347" fill="url(#path3347_1_)" d="M32.606,23.257c-5.613,0.521-12.278,1.913-17.426,9.65l0,0
+	c5.109-5.361,10.65-8.511,25.168-7.968l0,0c3.171,0.111,6.655,0.072,9.652,0.521l0,0c-0.136-0.099-0.395-0.29-0.704-0.521l0,0
+	l-3.639-2.162C43.304,22.803,36.462,22.902,32.606,23.257"/>
+<linearGradient id="path3367_1_" gradientUnits="userSpaceOnUse" x1="3.6694" y1="37.6055" x2="3.8688" y2="37.6055" gradientTransform="matrix(-53.9672 -33.0774 -33.0774 53.9672 1459.125 -1885.9844)">
+	<stop  offset="0" style="stop-color:#F4A51D"/>
+	<stop  offset="1" style="stop-color:#E63625"/>
+</linearGradient>
+<path id="path3367" fill="url(#path3367_1_)" d="M0,14.123c7.522,1.61,12.178,3.7,17.297,7.463l0,0
+	c0.014-0.003,0.865-0.921,0.889-0.935l0,0c-1.686-1.753-6.332-4.715-10.84-6.529l0,0H0L0,14.123z"/>
+</svg>

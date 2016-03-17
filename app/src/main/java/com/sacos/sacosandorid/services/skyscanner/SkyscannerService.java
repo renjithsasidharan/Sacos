@@ -1,16 +1,9 @@
 package com.sacos.sacosandorid.services.skyscanner;
 
-import android.util.Log;
-
-import com.squareup.okhttp.Interceptor;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
-
-import java.io.IOException;
-
 import com.sacos.sacosandorid.models.skyscanner.autosuggest.AutosuggestResult;
 import com.sacos.sacosandorid.models.skyscanner.SkyscannerModel;
+import com.sacos.sacosandorid.OkHttpHandler;
+
 import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
 import retrofit.Call;
@@ -18,25 +11,20 @@ import retrofit.http.GET;
 import retrofit.http.Path;
 import retrofit.http.Query;
 
+import com.squareup.okhttp.OkHttpClient;
+
 public class SkyscannerService {
 
     private static SkyscannerApiInterface skyscannerApiInterface;
-    private static String baseUrl = "http://partners.api.skyscanner.net" ;
-    private static String API_KEY = "prtl6749387986743898559646983194";
+    private static String baseUrl = "http://partners.api.skyscanner.net";
+    public static String API_KEY = "prtl6749387986743898559646983194";
+    public static String ANYTIME = "Anytime";
+    public static String ANYWHERE = "Anywhere";
 
     public static SkyscannerApiInterface getClient() {
         if (skyscannerApiInterface == null) {
 
-            OkHttpClient okClient = new OkHttpClient();
-            okClient.interceptors().add(new Interceptor() {
-                @Override
-                public Response intercept(Chain chain) throws IOException {
-                    Request request = chain.request();
-                    Log.d("SkyscannerService", "Request url = " + request.urlString());
-                    Response response = chain.proceed(chain.request());
-                    return response;
-                }
-            });
+            OkHttpClient okClient = OkHttpHandler.getClient();
 
             Retrofit client = new Retrofit.Builder()
                     .baseUrl(baseUrl)
@@ -49,8 +37,8 @@ public class SkyscannerService {
     }
 
     public interface SkyscannerApiInterface {
-        @GET("/apiservices/browsequotes/v1.0/IN/INR/en-US/{originPlace}/{destinationPlace}/anytime/anytime")
-        Call<SkyscannerModel> browseQuotes(@Path("originPlace") String originPlace, @Path("destinationPlace") String destinationPlace, @Query("apiKey") String apiKey);
+        @GET("/apiservices/browsequotes/v1.0/{market}/INR/en-US/{originPlace}/{destinationPlace}/{outboundPartialDate}/{inboundPartialDate}")
+        Call<SkyscannerModel> browseQuotes(@Path("market") String market, @Path("originPlace") String originPlace, @Path("destinationPlace") String destinationPlace, @Path("outboundPartialDate") String outboundPartialDate, @Path("inboundPartialDate") String inboundPartialDate,  @Query("apiKey") String apiKey);
 
         @GET("/apiservices/autosuggest/v1.0/IN/INR/en-US")
         Call<AutosuggestResult> autosuggest(@Query("query") String query, @Query("apiKey") String apiKey);
