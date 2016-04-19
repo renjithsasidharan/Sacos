@@ -1,9 +1,11 @@
 package com.sacos.sacosandorid;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,20 +13,23 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-import com.google.android.gms.common.api.GoogleApiClient;
+import com.rohit.recycleritemclicksupport.RecyclerItemClickSupport;
+
 import com.mugen.Mugen;
 import com.mugen.MugenCallbacks;
 import com.mugen.attachers.BaseAttacher;
 import com.sacos.sacosandorid.models.ExploreModel;
 import com.sacos.sacosandorid.models.PX500.search.PX500SearchResults;
 import com.sacos.sacosandorid.models.PX500.search.Photo;
-import com.sacos.sacosandorid.models.skyscanner.Currency;
-import com.sacos.sacosandorid.models.skyscanner.Quote;
-import com.sacos.sacosandorid.models.skyscanner.SkyscannerModel;
+import com.sacos.sacosandorid.models.skyscanner.browsequotes.Currency;
+import com.sacos.sacosandorid.models.skyscanner.browsequotes.Quote;
+import com.sacos.sacosandorid.models.skyscanner.browsequotes.BrowseQuotes;
 import com.sacos.sacosandorid.services.LocationService;
 import com.sacos.sacosandorid.services.px500.PX500Service;
 import com.sacos.sacosandorid.services.skyscanner.SkyscannerService;
+import com.sacos.sacosandorid.BrowseDatesActivty;
 
 import org.joda.time.DateTime;
 import org.joda.time.Days;
@@ -60,7 +65,7 @@ public class ExploreActivity extends Fragment implements SwipeRefreshLayout.OnRe
   private int page = 0;
   final private int limit = 20;
   boolean isLoading = false;
-  SkyscannerModel result = new SkyscannerModel();
+  BrowseQuotes result = new BrowseQuotes();
   List<ExploreModel> exploreData =  new ArrayList<>();
   List<ExploreModel> paginatedQuotes = new ArrayList<>();
 
@@ -81,15 +86,38 @@ public class ExploreActivity extends Fragment implements SwipeRefreshLayout.OnRe
     mSwipeRefreshLayout.setOnRefreshListener(this);
     mRecyclerView = (RecyclerView) rootView.findViewById(R.id.explore_masonry_grid);
     adapter = new ExploreAdapter(SacosAndroid.getAppContext(), paginatedQuotes);
-    //StaggeredGridLayoutManager lm = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
     LinearLayoutManager lm = new LinearLayoutManager(getActivity(),
         LinearLayoutManager.VERTICAL,
         false);
     mRecyclerView.setHasFixedSize(true);
-//    SpacesItemDecoration decoration = new SpacesItemDecoration(0);
-//    mRecyclerView.addItemDecoration(decoration);
     mRecyclerView.setLayoutManager(lm);
     mRecyclerView.setAdapter(adapter);
+
+
+    final BrowseDatesFragment datesFragment= new BrowseDatesFragment();
+    final FragmentManager fm =  this.getFragmentManager();
+
+    RecyclerItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(new RecyclerItemClickSupport.OnItemClickListener() {
+      @Override
+      public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+        Toast.makeText(rootView.getContext(), "Click " + position, Toast.LENGTH_SHORT).show();
+//        Intent browseIntent = new Intent(rootView.getContext(), BrowseDatesActivty.class);
+//        browseIntent.putExtra("toAirportCode", exploreData.get(position).getDestinationIataCode());
+//        browseIntent.putExtra("fromAirportCode", exploreData.get(position).getOriginIataCode());
+
+        Bundle args = new Bundle();
+        args.putString("fromAirportCode", exploreData.get(position).getDestinationIataCode());
+        args.putString("toAirportCode", exploreData.get(position).getOriginIataCode());
+
+        //ExploreActivity.this.startActivity(browseIntent);
+
+        datesFragment.setArguments(args);
+        fm.beginTransaction()
+            .replace(R.id.explore_container, datesFragment,"BROWSE_DATES_FRAGMENT")
+            .addToBackStack(null)
+            .commit();
+      }
+    });
 
     final SkyscannerService.SkyscannerApiInterface service = SkyscannerService.getClient();
     final String market = LocationService.getCountryCode(rootView.getContext());
@@ -101,11 +129,11 @@ public class ExploreActivity extends Fragment implements SwipeRefreshLayout.OnRe
         String lat = String.valueOf(location.getLatitude());
         String lon = String.valueOf(location.getLongitude());
         String from = lat.concat(",").concat(lon).concat("-Latlong");
-        Call<SkyscannerModel> call = service.browseQuotes(market, from, SkyscannerService.ANYWHERE, SkyscannerService.ANYTIME, SkyscannerService.ANYTIME, "prtl6749387986743898559646983194");
+        Call<BrowseQuotes> call = service.browseQuotes(market, from, SkyscannerService.ANYWHERE, SkyscannerService.ANYTIME, SkyscannerService.ANYTIME, SkyscannerService.API_KEY);
 
-        call.enqueue(new Callback<SkyscannerModel>() {
+        call.enqueue(new Callback<BrowseQuotes>() {
           @Override
-          public void onResponse(Response<SkyscannerModel> response, Retrofit retrofit) {
+          public void onResponse(Response<BrowseQuotes> response, Retrofit retrofit) {
             if (mListener != null) {
               //to demo loading finished..
               mListener.onLoadingFinished();
@@ -226,31 +254,29 @@ public class ExploreActivity extends Fragment implements SwipeRefreshLayout.OnRe
 
   }
 
-  public void setExploreData(SkyscannerModel result) {
+  public void setExploreData(BrowseQuotes result) {
     boolean isExsiting;
     Currency currency;
     NumberFormat nf = NumberFormat.getInstance();
 
     for(Quote quote: result.getQuotes()) {
       isExsiting  = false;
+      DateTimeFormatter fmt = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss");
+      DateTime fromDt = fmt.parseDateTime(quote.getOutboundLeg().getDepartureDate());
+      DateTime toDt = fmt.parseDateTime(quote.getInboundLeg().getDepartureDate());
+      int days = Days.daysBetween(new DateTime(fromDt), new DateTime(toDt)).getDays();
       for(ExploreModel exploreItem: exploreData) {
-        if(exploreItem.getDestinationId() == quote.getOutboundLeg().getDestinationId()) {
+        if(exploreItem.getDestination().equals(result.getPlaceNameFromId(quote.getOutboundLeg().getDestinationId()))) {
           isExsiting =  true;
           if(quote.getMinPrice() < exploreItem.getPrice()) {
+            exploreItem.setQuoteId(quote.getQuoteId());
             exploreItem.setPrice(quote.getMinPrice());
             currency = result.getCurrencies().get(0);
-            if(currency.isSymbolOnLeft()) {
-              if(currency.isSpaceBetweenAmountAndSymbol()) {
-                exploreItem.setPriceString(currency.getSymbol() + " " + nf.format(quote.getMinPrice()));
-              } else {
-                exploreItem.setPriceString(currency.getSymbol() + nf.format(quote.getMinPrice()));
-              }
+            exploreItem.setPriceString(currency.getSymbol() + " " + nf.format(quote.getMinPrice()));
+            if(days > 1) {
+              exploreItem.setDays(Integer.toString(days).concat(" days"));
             } else {
-              if(currency.isSpaceBetweenAmountAndSymbol()) {
-                exploreItem.setPriceString(nf.format(quote.getMinPrice()) + " " + currency.getSymbol());
-              } else {
-                exploreItem.setPriceString(nf.format(quote.getMinPrice()) + currency.getSymbol());
-              }
+              exploreItem.setDays(Integer.toString(days).concat(" day"));
             }
           }
         }
@@ -258,12 +284,11 @@ public class ExploreActivity extends Fragment implements SwipeRefreshLayout.OnRe
 
       if(!isExsiting) {
         ExploreModel exploreItem = new ExploreModel();
-        DateTimeFormatter fmt = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss");
-        DateTime fromDt = fmt.parseDateTime(quote.getOutboundLeg().getDepartureDate());
-        DateTime toDt = fmt.parseDateTime(quote.getInboundLeg().getDepartureDate());
-        int days = Days.daysBetween(new DateTime(fromDt), new DateTime(toDt)).getDays();
+        exploreItem.setQuoteId(quote.getQuoteId());
         exploreItem.setPrice(quote.getMinPrice());
         exploreItem.setDestinationId(quote.getOutboundLeg().getDestinationId());
+        exploreItem.setOriginIataCode(result.getIataCodeFromId(quote.getOutboundLeg().getOriginId()));
+        exploreItem.setDestinationIataCode(result.getIataCodeFromId(quote.getOutboundLeg().getDestinationId()));
         exploreItem.setDestination(result.getPlaceNameFromId(quote.getOutboundLeg().getDestinationId()));
         if(days > 1) {
           exploreItem.setDays(Integer.toString(days).concat(" days"));

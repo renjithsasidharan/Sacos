@@ -10,4 +10,8 @@
     <dimen name="list_single_height">48dp</dimen>
     <dimen name="card_header_text_size">20sp</dimen>
     <dimen name="card_subheader_text_size">16sp</dimen>
+    <dimen name="tab_max_width">264dp</dimen>
+    <dimen name="tab_padding_bottom">16dp</dimen>
+    <dimen name="tab_label">14sp</dimen>
+    <dimen name="custom_tab_layout_height">72dp</dimen>
 </resources>

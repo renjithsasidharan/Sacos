@@ -1,17 +1,13 @@
 package com.sacos.sacosandorid;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.ListView;
 import android.widget.TextView;
-
-import com.google.gson.Gson;
 
 import com.sacos.sacosandorid.models.skyscanner.autosuggest.AutosuggestResult;
 import com.sacos.sacosandorid.models.skyscanner.autosuggest.Place;
@@ -22,9 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import retrofit.Call;
-import retrofit.Callback;
 import retrofit.Response;
-import retrofit.Retrofit;
 
 /**
  * Created by renjith on 05/01/16.
@@ -101,9 +95,7 @@ public class PlaceAutoCompleteAdapter extends BaseAdapter implements Filterable 
         return filter;
     }
 
-    /**
-     * Returns a search result for the given book title.
-     */
+
     private List<Place> findPlaces(String name) {
         SkyscannerService.SkyscannerApiInterface service = SkyscannerService.getClient();
         List<Place> places = new ArrayList<>();

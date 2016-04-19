@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:card_view="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+<android.support.v7.widget.CardView android:id="@+id/search_result_card"
+                                    xmlns:android="http://schemas.android.com/apk/res/android"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="8dp"
+                                    card_view:contentPadding="16dp"
+                                    card_view:cardElevation="2dp"
+                                    card_view:cardCornerRadius="3dp">
+
+
+        <TextView
+            android:id="@+id/browsedates_destination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:textColor="#222"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/browsedates_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:textColor="#222"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+
+</android.support.v7.widget.CardView>
+
+</RelativeLayout>
+

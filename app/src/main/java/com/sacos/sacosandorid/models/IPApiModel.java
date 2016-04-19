@@ -27,10 +27,10 @@ public class IPApiModel {
     private String isp;
     @SerializedName("lat")
     @Expose
-    private double lat;
+    private Double lat;
     @SerializedName("lon")
     @Expose
-    private double lon;
+    private Double lon;
     @SerializedName("org")
     @Expose
     private String org;
@@ -148,7 +148,7 @@ public class IPApiModel {
      * @return
      *     The lat
      */
-    public double getLat() {
+    public Double getLat() {
         return lat;
     }
 
@@ -157,7 +157,7 @@ public class IPApiModel {
      * @param lat
      *     The lat
      */
-    public void setLat(double lat) {
+    public void setLat(Double lat) {
         this.lat = lat;
     }
 
@@ -166,7 +166,7 @@ public class IPApiModel {
      * @return
      *     The lon
      */
-    public double getLon() {
+    public Double getLon() {
         return lon;
     }
 
@@ -175,7 +175,7 @@ public class IPApiModel {
      * @param lon
      *     The lon
      */
-    public void setLon(double lon) {
+    public void setLon(Double lon) {
         this.lon = lon;
     }
 

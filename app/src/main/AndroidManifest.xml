@@ -32,17 +32,10 @@
             android:exported="true">
         </service>
 
-        <activity
-            android:name=".PlaceSearchActivity"
-            android:label="@string/title_activity_search"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
-            android:name=".PlaceSearchResultActivity"
-            android:label="@string/title_activity_search_result"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
         <activity android:name=".ExploreActivity">
+        </activity>
+        <activity
+            android:name=".BrowseDatesActivty">
         </activity>
     </application>
 

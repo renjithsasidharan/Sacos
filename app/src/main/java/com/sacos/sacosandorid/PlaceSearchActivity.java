@@ -22,7 +22,7 @@ import retrofit.Response;
 import com.google.gson.Gson;
 
 import com.sacos.sacosandorid.services.skyscanner.SkyscannerService;
-import com.sacos.sacosandorid.models.skyscanner.SkyscannerModel;
+import com.sacos.sacosandorid.models.skyscanner.browsequotes.BrowseQuotes;
 import com.sacos.sacosandorid.models.skyscanner.autosuggest.Place;
 
 public class PlaceSearchActivity extends AppCompatActivity {
@@ -94,17 +94,17 @@ public class PlaceSearchActivity extends AppCompatActivity {
         String from= _from.getText().toString();
 
         SkyscannerService.SkyscannerApiInterface service = SkyscannerService.getClient();
-        Call<SkyscannerModel> call = service.browseQuotes("IN", from, to, SkyscannerService.ANYTIME, SkyscannerService.ANYTIME, "prtl6749387986743898559646983194");
+        Call<BrowseQuotes> call = service.browseQuotes("IN", from, to, SkyscannerService.ANYTIME, SkyscannerService.ANYTIME, "prtl6749387986743898559646983194");
 
-        call.enqueue(new Callback<SkyscannerModel>() {
+        call.enqueue(new Callback<BrowseQuotes>() {
             @Override
-            public void onResponse(Response<SkyscannerModel> response, Retrofit retrofit) {
+            public void onResponse(Response<BrowseQuotes> response, Retrofit retrofit) {
                 progressDialog.dismiss();
                 Log.d("PlaceSearchActivity", "Status Code = " + response.code());
                 progressDialog.dismiss();
                 if (response.isSuccess()) {
                     setContentView(R.layout.activity_search_result_list);
-                    SkyscannerModel result = response.body();
+                    BrowseQuotes result = response.body();
                     ListView _searchListView = (ListView) findViewById(R.id.listview);
                     Log.d("PlaceSearchActivity", "response = " + new Gson().toJson(result));
                     adapter = new PlaceSearchResultAdapter(PlaceSearchActivity.this, result);

@@ -58,7 +58,8 @@
             android:layout_alignParentEnd="true"
             android:layout_toEndOf="@+id/explore_destination"
             android:gravity="end"
-            android:padding="8dp"
+            android:paddingEnd="8dp"
+            android:textStyle="italic"
             android:textColor="#fff"
             android:text="@string/from"
             android:textSize="12sp"/>

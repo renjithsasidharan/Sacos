@@ -6,7 +6,6 @@ package com.sacos.sacosandorid;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sacos.sacosandorid.models.ExploreModel;
-import com.sacos.sacosandorid.models.skyscanner.Quote;
-import com.sacos.sacosandorid.models.skyscanner.SkyscannerModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -42,6 +39,7 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ExploreV
 
     @Override
     public void onBindViewHolder(ExploreView holder, int position) {
+        Picasso.with(context).setIndicatorsEnabled(true);
         Picasso
                 .with(context)
                 .load(data.get(position).getOutboundPictureUrl())

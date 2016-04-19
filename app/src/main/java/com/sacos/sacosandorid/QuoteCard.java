@@ -30,7 +30,7 @@ public class QuoteCard extends Card {
      * @param context
      */
     public QuoteCard(Context context) {
-        this(context, R.layout.activity_search_results_cell);
+        this(context, R.layout.fragment_browse_dates_all_cell);
     }
 
     /**
@@ -63,17 +63,17 @@ public class QuoteCard extends Card {
     public void setupInnerViewElements(ViewGroup parent, View view) {
 
         //Retrieve elements
-        mFromCode = (TextView) parent.findViewById(R.id.result_from_code);
-        mFromName = (TextView) parent.findViewById(R.id.result_from_name);
-        mFromDate = (TextView) parent.findViewById(R.id.result_from_date);
-        mFromDay  = (TextView) parent.findViewById(R.id.result_from_day);
-
-        mToCode = (TextView) parent.findViewById(R.id.result_to_code);
-        mToName = (TextView) parent.findViewById(R.id.result_to_name);
-        mToDate = (TextView) parent.findViewById(R.id.result_to_date);
-        mToDay  = (TextView) parent.findViewById(R.id.result_to_day);
-
-        mQuote = (TextView) parent.findViewById(R.id.result_quote);
+//        mFromCode = (TextView) parent.findViewById(R.id.result_from_code);
+//        mFromName = (TextView) parent.findViewById(R.id.result_from_name);
+//        mFromDate = (TextView) parent.findViewById(R.id.result_from_date);
+//        mFromDay  = (TextView) parent.findViewById(R.id.result_from_day);
+//
+//        mToCode = (TextView) parent.findViewById(R.id.result_to_code);
+//        mToName = (TextView) parent.findViewById(R.id.result_to_name);
+//        mToDate = (TextView) parent.findViewById(R.id.result_to_date);
+//        mToDay  = (TextView) parent.findViewById(R.id.result_to_day);
+//
+//        mQuote = (TextView) parent.findViewById(R.id.result_quote);
 
 
         if (mFromCode != null)

@@ -35,16 +35,16 @@ public class OkHttpHandler {
             });
 
             // Cache interceptor
-            okHttpClient.interceptors().add(new Interceptor() {
-                @Override
-                public Response intercept(Chain chain) throws IOException {
-                    Response originalResponse = chain.proceed(chain.request());
-                    int maxAge = 600; // read from cache for 10 mins
-                    return originalResponse.newBuilder()
-                            .header("Cache-Control", "public, max-age=" + maxAge)
-                            .build();
-                }
-            });
+//            okHttpClient.interceptors().add(new Interceptor() {
+//                @Override
+//                public Response intercept(Chain chain) throws IOException {
+//                    Response originalResponse = chain.proceed(chain.request());
+//                    int maxAge = 600; // read from cache for 10 mins
+//                    return originalResponse.newBuilder()
+//                            .header("Cache-Control", "public, max-age=" + maxAge)
+//                            .build();
+//                }
+//            });
 
             //setup cache
             File httpCacheDirectory = new File("responses");

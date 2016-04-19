@@ -1,7 +1,8 @@
 package com.sacos.sacosandorid.services.skyscanner;
 
 import com.sacos.sacosandorid.models.skyscanner.autosuggest.AutosuggestResult;
-import com.sacos.sacosandorid.models.skyscanner.SkyscannerModel;
+import com.sacos.sacosandorid.models.skyscanner.browsedates.BrowseDates;
+import com.sacos.sacosandorid.models.skyscanner.browsequotes.BrowseQuotes;
 import com.sacos.sacosandorid.OkHttpHandler;
 
 import retrofit.GsonConverterFactory;
@@ -37,8 +38,11 @@ public class SkyscannerService {
     }
 
     public interface SkyscannerApiInterface {
-        @GET("/apiservices/browsequotes/v1.0/{market}/INR/en-US/{originPlace}/{destinationPlace}/{outboundPartialDate}/{inboundPartialDate}")
-        Call<SkyscannerModel> browseQuotes(@Path("market") String market, @Path("originPlace") String originPlace, @Path("destinationPlace") String destinationPlace, @Path("outboundPartialDate") String outboundPartialDate, @Path("inboundPartialDate") String inboundPartialDate,  @Query("apiKey") String apiKey);
+        @GET("/apiservices/browsedates/v1.0/{market}/INR/en-IN/{originPlace}/{destinationPlace}/{outboundPartialDate}/{inboundPartialDate}")
+        Call<BrowseDates> browseDates(@Path("market") String market, @Path("originPlace") String originPlace, @Path("destinationPlace") String destinationPlace, @Path("outboundPartialDate") String outboundPartialDate, @Path("inboundPartialDate") String inboundPartialDate, @Query("apiKey") String apiKey);
+
+        @GET("/apiservices/browsequotes/v1.0/{market}/INR/en-IN/{originPlace}/{destinationPlace}/{outboundPartialDate}/{inboundPartialDate}")
+        Call<BrowseQuotes> browseQuotes(@Path("market") String market, @Path("originPlace") String originPlace, @Path("destinationPlace") String destinationPlace, @Path("outboundPartialDate") String outboundPartialDate, @Path("inboundPartialDate") String inboundPartialDate, @Query("apiKey") String apiKey);
 
         @GET("/apiservices/autosuggest/v1.0/IN/INR/en-US")
         Call<AutosuggestResult> autosuggest(@Query("query") String query, @Query("apiKey") String apiKey);

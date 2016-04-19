@@ -12,13 +12,34 @@ import javax.annotation.Generated;
 @Generated("org.jsonschema2pojo")
 public class ExploreModel {
 
+  private int quoteId;
   private int price;
   private String priceString;
   private int DestinationId;
   private String destination;
+  private String originIataCode;
+  private String destinationIataCode;
   private String days;
   private String OutboundPictureUrl;
   private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+  /**
+   *
+   * @return
+   * The quote id
+   */
+  public int getQuoteId() {
+    return quoteId;
+  }
+
+  /**
+   *
+   * @param price
+   * The quote id
+   */
+  public void setQuoteId(int quoteId) {
+    this.quoteId = quoteId;
+  }
 
   /**
    *
@@ -77,8 +98,39 @@ public class ExploreModel {
   /**
    *
    * @return
-   *     The DepartureDate
+   *     The Origin Iata Code
    */
+  public String getOriginIataCode() {
+    return originIataCode;
+  }
+
+  /**
+   *
+   * @param originIataCode
+   *     The Origin Iata Code
+   */
+  public void setOriginIataCode(String originIataCode) {
+    this.originIataCode = originIataCode;
+  }
+
+  /**
+   *
+   * @return
+   *     The Destination Iata Code
+   */
+  public String getDestinationIataCode() {
+    return destinationIataCode;
+  }
+
+  /**
+   *
+   * @param destinationIataCode
+   *     The Destination Iata Code
+   */
+  public void setDestinationIataCode(String destinationIataCode) {
+    this.destinationIataCode = destinationIataCode;
+  }
+
 
   /**
    *

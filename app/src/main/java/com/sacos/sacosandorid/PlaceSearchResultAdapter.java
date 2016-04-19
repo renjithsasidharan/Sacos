@@ -16,14 +16,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import com.sacos.sacosandorid.models.skyscanner.SkyscannerModel;
-import com.sacos.sacosandorid.models.skyscanner.Quote;
+import com.sacos.sacosandorid.models.skyscanner.browsequotes.BrowseQuotes;
+import com.sacos.sacosandorid.models.skyscanner.browsequotes.Quote;
 
 
 public class PlaceSearchResultAdapter extends BaseAdapter {
     private List<Quote> quotes ;
     private Context context ;
-    private SkyscannerModel results;
+    private BrowseQuotes results;
     private final SimpleDateFormat incoming_format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 
     private final SimpleDateFormat display_format = new SimpleDateFormat("d MMM");
@@ -41,7 +41,7 @@ public class PlaceSearchResultAdapter extends BaseAdapter {
         private TextView to_day;
     }
 
-    public PlaceSearchResultAdapter(Context ctx, SkyscannerModel results) {
+    public PlaceSearchResultAdapter(Context ctx, BrowseQuotes results) {
         super();
         this.context = ctx ;
         this.results = results;
@@ -71,18 +71,18 @@ public class PlaceSearchResultAdapter extends BaseAdapter {
 
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.activity_search_results_cell, viewGroup, false);
+            view = inflater.inflate(R.layout.fragment_browse_dates_all_cell, viewGroup, false);
 
             holder = new ViewHolder();
-            holder.fare = (TextView) view.findViewById(R.id.result_quote);
-            holder.from_name = (TextView) view.findViewById(R.id.result_from_name);
-            holder.from_code = (TextView) view.findViewById(R.id.result_from_code);
-            holder.to_name = (TextView) view.findViewById(R.id.result_to_name);
-            holder.to_airport = (TextView) view.findViewById(R.id.result_to_code);
-            holder.from_date = (TextView) view.findViewById(R.id.result_from_date);
-            holder.to_date = (TextView) view.findViewById(R.id.result_to_date);
-            holder.from_day = (TextView) view.findViewById(R.id.result_from_day);
-            holder.to_day = (TextView) view.findViewById(R.id.result_to_day);
+//            holder.fare = (TextView) view.findViewById(R.id.result_quote);
+//            holder.from_name = (TextView) view.findViewById(R.id.result_from_name);
+//            holder.from_code = (TextView) view.findViewById(R.id.result_from_code);
+//            holder.to_name = (TextView) view.findViewById(R.id.result_to_name);
+//            holder.to_airport = (TextView) view.findViewById(R.id.result_to_code);
+//            holder.from_date = (TextView) view.findViewById(R.id.result_from_date);
+//            holder.to_date = (TextView) view.findViewById(R.id.result_to_date);
+//            holder.from_day = (TextView) view.findViewById(R.id.result_from_day);
+//            holder.to_day = (TextView) view.findViewById(R.id.result_to_day);
 
             view.setTag(holder);
         } else {
