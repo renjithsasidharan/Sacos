@@ -9,33 +9,38 @@ import android.widget.TextView;
 
 import com.sacos.sacosandorid.models.ExploreModel;
 
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+import org.w3c.dom.Text;
+
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by renjith on 06/04/16.
  */
 public class BrowseDatesAdapter extends RecyclerView.Adapter<BrowseDatesAdapter.BrowseDatesView> {
 
-  private Context context;
   private List<ExploreModel> data;
 
   public BrowseDatesAdapter(Context context, List<ExploreModel> data) {
     super();
-    this.context = context;
     this.data = data;
   }
 
   @Override
   public BrowseDatesView onCreateViewHolder(ViewGroup parent, int viewType) {
     View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_browse_dates_all_cell, parent, false);
-    BrowseDatesView exploreView = new BrowseDatesView(layoutView);
-    return exploreView;
+    return new BrowseDatesView(layoutView);
   }
 
   @Override
   public void onBindViewHolder(BrowseDatesView holder, int position) {
     holder.price.setText(data.get(position).getPriceString());
-    holder.destination.setText(data.get(position).getDestination());
+    holder.onwardDate.setText(data.get(position).getOnwardDate().toString("E, d MMM"));
+    holder.returnDate.setText(data.get(position).getReturnDate().toString("E, d MMM"));
+    holder.onwardRoute.setText(data.get(position).getOriginIataCode().concat(" - ").concat(data.get(position).getDestinationIataCode()));
+    holder.returnRoute.setText(data.get(position).getDestinationIataCode().concat(" - ").concat(data.get(position).getOriginIataCode()));
   }
 
   @Override
@@ -45,14 +50,18 @@ public class BrowseDatesAdapter extends RecyclerView.Adapter<BrowseDatesAdapter.
 
   class BrowseDatesView extends RecyclerView.ViewHolder {
     TextView price;
-    TextView destination;
+    TextView onwardDate;
+    TextView returnDate;
+    TextView onwardRoute;
+    TextView returnRoute;
 
     public BrowseDatesView(View itemView) {
       super(itemView);
-
-      price = (TextView) itemView.findViewById(R.id.browsedates_price);
-      destination = (TextView) itemView.findViewById(R.id.browsedates_destination);
-
+      price = (TextView) itemView.findViewById(R.id.price);
+      onwardDate = (TextView) itemView.findViewById(R.id.onward_date);
+      returnDate = (TextView) itemView.findViewById(R.id.return_date);
+      onwardRoute = (TextView) itemView.findViewById(R.id.onward_route);
+      returnRoute = (TextView) itemView.findViewById(R.id.return_route);
     }
   }
 
@@ -60,5 +69,4 @@ public class BrowseDatesAdapter extends RecyclerView.Adapter<BrowseDatesAdapter.
     data.addAll(newdata);
     notifyDataSetChanged();
   }
-
 }

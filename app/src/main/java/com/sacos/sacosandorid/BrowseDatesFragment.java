@@ -99,6 +99,8 @@ public class BrowseDatesFragment extends Fragment {
       ExploreModel exploreItem = new ExploreModel();
       exploreItem.setQuoteId(quote.getQuoteId());
       exploreItem.setPrice(quote.getMinPrice());
+      exploreItem.setOnwardDate(fromDt);
+      exploreItem.setReturnDate(toDt);
       exploreItem.setDestinationId(quote.getOutboundLeg().getDestinationId());
       exploreItem.setOriginIataCode(result.getIataCodeFromId(quote.getOutboundLeg().getOriginId()));
       exploreItem.setDestinationIataCode(result.getIataCodeFromId(quote.getOutboundLeg().getDestinationId()));

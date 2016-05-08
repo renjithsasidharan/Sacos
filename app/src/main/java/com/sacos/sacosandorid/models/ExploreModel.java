@@ -1,6 +1,9 @@
 package com.sacos.sacosandorid.models;
 
 
+import org.joda.time.DateTime;
+
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Generated;
@@ -17,6 +20,8 @@ public class ExploreModel {
   private String priceString;
   private int DestinationId;
   private String destination;
+  private DateTime onwardDate;
+  private DateTime returnDate;
   private String originIataCode;
   private String destinationIataCode;
   private String days;
@@ -166,6 +171,46 @@ public class ExploreModel {
    */
   public void setDays(String days) {
     this.days = days;
+  }
+
+
+  /**
+   *
+   * @return
+   * The Onward Date
+   */
+  public DateTime getOnwardDate() {
+    return onwardDate;
+  }
+
+
+  /**
+   *
+   * @param Onward Date
+   * The Onward Date
+   */
+  public void setOnwardDate(DateTime date) {
+    this.onwardDate = date;
+  }
+
+
+  /**
+   *
+   * @param Return Date
+   * The Return Date
+   */
+  public void setReturnDate(DateTime date) {
+    this.returnDate = date;
+  }
+
+
+  /**
+   *
+   * @return
+   * The Return Date
+   */
+  public DateTime getReturnDate() {
+    return returnDate;
   }
 
   /**
